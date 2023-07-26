@@ -18,6 +18,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import java.util.Collections;
 import java.util.List;
 
 final class ServiceManager {
@@ -166,13 +167,14 @@ final class ServiceManager {
     // pre TIRAMISU versions of Android
     @SuppressWarnings("deprecation")
     private List<ResolveInfo> getCallAppsList(PackageManager pm) {
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:123123"));
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            return pm.queryIntentActivities(callIntent, PackageManager.ResolveInfoFlags.of(0));
-        } else {
-            return pm.queryIntentActivities(callIntent, 0);
-        }
+//        Intent callIntent = new Intent(Intent.ACTION_CALL);
+//        callIntent.setData(Uri.parse("tel:123123"));
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//            return pm.queryIntentActivities(callIntent, PackageManager.ResolveInfoFlags.of(0));
+//        } else {
+//            return pm.queryIntentActivities(callIntent, 0);
+//        }
+        return Collections.emptyList();
     }
 }
